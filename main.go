@@ -54,25 +54,35 @@ func parrotInit(x string, y string) (Crier, int) {
 }
 //---
 
+func cryecho(x Crier) (string, string) {
+	return x.Cry(), x.Echo() 
+}
+
 func main() {
 	//var c Crier = Duck{"Jack", 1}
 	//var c Crier
 	//c = Duck{"Jack", 1}
 	c, _ := duckInit("Jack",1)
-	fmt.Println(c.Cry())
-	fmt.Println(c.Echo())
+	//fmt.Println(c.Cry())
+	//fmt.Println(c.Echo())
+	cry1, echo1 := cryecho(c)
+	fmt.Printf("%v\n%v\n", cry1, echo1)
 
 	//var p Crier = &Parrot{"Nick", "Tokyo"}
 	//var p Crier
 	//p = &Parrot{"Nick", "Tokyo"}
 	p, _ := parrotInit("Nick", "Tokyo")
-	fmt.Println(p.Cry())
-	fmt.Println(p.Echo())
+	//fmt.Println(p.Cry())
+	//fmt.Println(p.Echo())
+	cry2, echo2 := cryecho(p)
+	fmt.Printf("%v\n%v\n", cry2, echo2)
 
 	//a := &Person{}
 	//a.Name = "John"
 	//a.Place = "NewYork"
 	a := &Person{Parrot{"John", "Newyork"}}
-	fmt.Println(a.Cry())
-	fmt.Println(a.Echo())
+	//fmt.Println(a.Cry())
+	//fmt.Println(a.Echo())
+	cry3, echo3 := cryecho(a)
+	fmt.Printf("%v\n%v\n", cry3, echo3)
 }
